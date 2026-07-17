@@ -1,0 +1,19 @@
+{
+  "name": "sollozzo-coffee-bar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing website for Sollozzo Coffee Bar im Hanse-Viertel, Hamburg.",
+  "scripts": {
+    "build:css": "tailwindcss -i assets/css/input.css -o assets/css/tailwind.css --minify --content \"./*.html\"",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/inter": "^5.2.8",
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

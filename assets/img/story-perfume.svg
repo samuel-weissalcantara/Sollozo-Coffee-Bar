@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="900" viewBox="0 0 1000 900">
+  <defs>
+    <linearGradient id="grad-story-perfume" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5b5a3f"/>
+      <stop offset="100%" stop-color="#8A8A66"/>
+    </linearGradient>
+    <filter id="grain-story-perfume"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="1000" height="900" fill="url(#grad-story-perfume)"/>
+  <rect width="1000" height="900" filter="url(#grain-story-perfume)" opacity="0.05"/>
+  <g transform="translate(500.0,450.0) scale(2.0)" opacity="0.9"><path d="M-24 -70h48l6 24H-30l6-24Z" fill="none" stroke="#F7F1E6" stroke-width="4" stroke-linejoin="round"/><path d="M-34 -46h68l8 96a10 10 0 0 1-10 10H-32a10 10 0 0 1-10-10l8-96Z" fill="none" stroke="#F7F1E6" stroke-width="4" stroke-linejoin="round"/></g>
+  <text x="984" y="884" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#F7F1E6" opacity="0.45">Platzhalterbild</text>
+</svg>

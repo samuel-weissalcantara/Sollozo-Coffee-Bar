@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="900" viewBox="0 0 1000 900">
+  <defs>
+    <linearGradient id="grad-story-team" x1="0%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#3B2417"/>
+      <stop offset="100%" stop-color="#1A1210"/>
+    </linearGradient>
+    <filter id="grain-story-team"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="1000" height="900" fill="url(#grad-story-team)"/>
+  <rect width="1000" height="900" filter="url(#grain-story-team)" opacity="0.05"/>
+  <g transform="translate(500.0,450.0) scale(2.0)" opacity="0.9"><circle cx="-34" cy="-20" r="20" fill="none" stroke="#F7F1E6" stroke-width="4"/><path d="M-70 55c0-26 18-42 36-42s36 16 36 42" fill="none" stroke="#F7F1E6" stroke-width="4"/><circle cx="34" cy="-14" r="16" fill="none" stroke="#F7F1E6" stroke-width="4"/><path d="M6 55c0-22 14-36 28-36s28 14 28 36" fill="none" stroke="#F7F1E6" stroke-width="4"/></g>
+  <text x="984" y="884" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#F7F1E6" opacity="0.45">Platzhalterbild</text>
+</svg>

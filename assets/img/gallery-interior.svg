@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1200" viewBox="0 0 1400 1200">
+  <defs>
+    <linearGradient id="grad-gallery-interior" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1210"/>
+      <stop offset="100%" stop-color="#3B2417"/>
+    </linearGradient>
+    <filter id="grain-gallery-interior"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="1400" height="1200" fill="url(#grad-gallery-interior)"/>
+  <rect width="1400" height="1200" filter="url(#grain-gallery-interior)" opacity="0.05"/>
+  <g transform="translate(700.0,600.0) scale(2.0)" opacity="0.9"><path d="M-55 -30h110v60a55 55 0 0 1-55 55 55 55 0 0 1-55-55v-60Z" fill="none" stroke="#F7F1E6" stroke-width="4"/><path d="M-55 -30l14-34h82l14 34" fill="none" stroke="#F7F1E6" stroke-width="4" stroke-linejoin="round"/><path d="M55 -10h18a24 24 0 0 1 0 48H55" fill="none" stroke="#F7F1E6" stroke-width="4"/></g>
+  <text x="1384" y="1184" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#F7F1E6" opacity="0.45">Platzhalterbild</text>
+</svg>
