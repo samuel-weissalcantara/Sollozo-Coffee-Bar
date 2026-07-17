@@ -92,6 +92,15 @@ const dict = {
     'footer.nav.title': 'Navigation',
     'footer.rights': 'Alle Rechte vorbehalten.',
     'footer.credit': 'Unabhängige Fan-/Konzeptseite · nicht der offizielle Onlineshop.',
+    'footer.legal.impressum': 'Impressum',
+    'footer.legal.privacy': 'Datenschutz',
+
+    'map.load.title': 'Karte laden',
+    'map.load.text': 'Beim Laden wird eine Verbindung zu Google Maps hergestellt und Daten an Google LLC (USA) übermittelt.',
+    'map.load.button': 'Karte laden',
+
+    'legal.impressum.title': 'Impressum',
+    'legal.datenschutz.title': 'Datenschutzerklärung',
 
     'menupage.hero.eyebrow': 'Speisekarte',
     'menupage.hero.title': 'Handwerk in jeder Tasse.',
@@ -228,6 +237,15 @@ const dict = {
     'footer.nav.title': 'Navigation',
     'footer.rights': 'All rights reserved.',
     'footer.credit': 'Independent concept site · not the official online shop.',
+    'footer.legal.impressum': 'Legal Notice',
+    'footer.legal.privacy': 'Privacy Policy',
+
+    'map.load.title': 'Load map',
+    'map.load.text': 'Loading the map connects to Google Maps and transmits data to Google LLC (USA).',
+    'map.load.button': 'Load map',
+
+    'legal.impressum.title': 'Legal Notice (Impressum)',
+    'legal.datenschutz.title': 'Privacy Policy',
 
     'menupage.hero.eyebrow': 'Menu',
     'menupage.hero.title': 'Craft in every cup.',
@@ -300,6 +318,12 @@ function applyTranslations(lang) {
     if (d[key] !== undefined) {
       el.innerHTML = d[key].replace(/\n/g, '<br>');
     }
+  });
+
+  // long-form bilingual content (legal pages) that isn't run through the
+  // dict lookup — each language's block is authored directly in the HTML.
+  document.querySelectorAll('[data-lang-block]').forEach((el) => {
+    el.classList.toggle('hidden', el.getAttribute('data-lang-block') !== lang);
   });
 
   document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
@@ -446,6 +470,23 @@ function initAccordion() {
   });
 }
 
+/* ---- click-to-load map (TTDSG: no third-party embed loads without an
+   explicit user action) --------------------------------------------------*/
+function initMapLoader() {
+  const holder = document.querySelector('[data-map-loader]');
+  if (!holder) return;
+  const btn = holder.querySelector('[data-map-load-btn]');
+  btn.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.title = holder.getAttribute('data-map-title') || 'Karte';
+    iframe.className = 'w-full h-full';
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.src = holder.getAttribute('data-map-src');
+    holder.replaceChildren(iframe);
+  });
+}
+
 /* ---- init ------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   applyTranslations(getLang());
@@ -457,6 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenuTabs();
   initLightbox();
   initAccordion();
+  initMapLoader();
 
   // set current year in footer
   document.querySelectorAll('[data-year]').forEach((el) => {

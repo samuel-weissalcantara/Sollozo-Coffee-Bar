@@ -31,7 +31,9 @@ index.html              Home
 menu.html                Speisekarte / Menu
 story.html               Geschichte / Story
 visit.html                Besuch & Kontakt / Visit & Contact
-assets/js/site.js        i18n dictionary (DE/EN), nav, scroll-reveal, menu tabs, lightbox, FAQ accordion
+impressum.html            Impressum (§5 DDG) — see "German legal compliance" below
+datenschutz.html          Datenschutzerklärung (GDPR/TTDSG) — see "German legal compliance" below
+assets/js/site.js        i18n dictionary (DE/EN), nav, scroll-reveal, menu tabs, lightbox, FAQ accordion, click-to-load map
 assets/css/input.css      Tailwind entry point + brand @theme (colors, fonts, shadow) + custom layer
 assets/css/tailwind.css   Compiled, committed output — this is what pages actually load
 assets/css/fonts.css      @font-face rules for the self-hosted fonts
@@ -64,11 +66,45 @@ assets/img/               Brand-styled SVG placeholder art (see below)
 - **Reviews**: testimonial text on the homepage is illustrative, written to
   match the tone of real reviews found online — replace with actual guest
   quotes (with permission) when available.
-- **Map**: `visit.html` embeds an OpenStreetMap iframe centered near
-  Poststraße 33; no API key required.
+- **Map**: `visit.html` shows a click-to-load placeholder on the "Besuch &
+  Kontakt" page — the Google Maps iframe (searching the address text
+  directly, no manual coordinates) only loads after the visitor clicks
+  "Karte laden", so nothing is fetched from Google until they opt in. See
+  "German legal compliance" below for why.
 - **Fonts**: self-hosted (Fraunces + Inter, latin subset) — no Google Fonts
   request at runtime, which is both faster and avoids the German/EU privacy
   concerns around loading fonts from Google's CDN.
+
+## German legal compliance
+
+This site includes the standard pages required for a German-hosted/targeted
+website:
+
+- **`impressum.html`** (§5 DDG): operator name, address, and contact are
+  placeholders (`[NAME]`, `[ADDRESS]`, etc.) — **fill these in with the real
+  operator's details before publishing**. Never leave them as placeholders
+  on a live site; an incomplete or fake Impressum is itself a legal
+  violation in Germany and a common target for Abmahnungen (cease-and-desist
+  letters). Since this site is a portfolio/demo built to pitch a prospective
+  client rather than the café's own official site, the operator listed
+  should be whoever is actually publishing the site (not the café), with a
+  clear on-page disclaimer that it's an unofficial concept — which is
+  already present in the footer of every page and at the top of the
+  Impressum.
+- **`datenschutz.html`** (Art. 13/14 GDPR + §25 TTDSG): covers hosting/CDN
+  logs, the click-to-load Google Maps embed, contact-form-free data
+  handling, and standard data-subject rights. Fill in the hosting
+  provider's name/address (e.g. Cloudflare) and the operator's contact
+  details to match the Impressum.
+- **Click-to-load Maps embed**: nothing from Google loads until the visitor
+  clicks the button — this avoids needing a cookie-consent banner for the
+  one third-party embed on the site. If you add other embeds (video,
+  analytics, social widgets) later, follow the same click-to-load pattern
+  or add a proper consent banner.
+
+This is a solid standard-practice baseline, not legal advice — have a
+lawyer review the filled-in Impressum/Datenschutz text before a real
+commercial launch.
 
 ## Deployment
 
