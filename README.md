@@ -114,6 +114,15 @@ Any static host works — no build step required at deploy time since
 - **GitHub Pages**: enable Pages on this repo, serve from the root of the
   default branch.
 - **Netlify / Vercel**: point at the repo root, no build command needed.
+- **Cloudflare Workers (static assets)**: deploy command is `npx wrangler
+  deploy`. `wrangler.jsonc` sets the assets directory to the repo root, and
+  `.assetsignore` excludes `node_modules`, `.git`, and other non-site files
+  from the deployment — without it, Cloudflare's build step reinstalls
+  `node_modules` (including wrangler's own ~122 MiB `workerd` binary) and
+  tries to upload it as a "static asset", which fails with `Asset too
+  large` (Workers caps individual assets at 25 MiB). If you ever see that
+  error again, it means something is being swept up that `.assetsignore`
+  doesn't yet exclude — check what changed.
 
 ## Notes
 
